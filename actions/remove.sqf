@@ -31,6 +31,8 @@ _proceed = false;
 _objType = typeOf _obj;
 if (_objType in DZE_DoorsLocked) exitWith {dayz_actionInProgress = false; localize "STR_EPOCH_ACTIONS_20" call dayz_rollingMessages;};
 
+_callBack = call FNC_plotBoundaries;
+
 // Chance to break tools
 _isDestructable = _obj isKindOf "BuiltItems";
 _isWreck = _objType in DZE_isWreck;
@@ -38,7 +40,7 @@ _isRemovable = _objType in DZE_isRemovable;
 _isWreckBuilding = _objType in DZE_isWreckBuilding;
 _isMine = _objType in ["Land_iron_vein_wreck","Land_silver_vein_wreck","Land_gold_vein_wreck"];
 _isModular = _obj isKindOf "ModularItems";
-_distance = DZE_PlotPole select 0;
+_distance = _callBack select 0;
 
 _PlayerNear = {isPlayer _x} count (([_obj] call FNC_GetPos) nearEntities ["CAManBase", 10]) > 1;
 if (_PlayerNear && (_isMine or _objType == "Land_ammo_supply_wreck")) exitWith {dayz_actionInProgress = false; localize "str_pickup_limit_5" call dayz_rollingMessages;};

@@ -20,12 +20,14 @@ _nearestPole = objNull;
 _ownerID = 0;
 _friendlies = [];
 
+_callBack = call FNC_plotBoundaries;
+
 if (_isPole) then {
 	_plotcheck = [player, true] call FNC_find_plots;
-	_distance =  DZE_PlotPole select 1;
+	_distance =  _callBack select 1;
 } else {
 	_plotcheck = [player, false] call FNC_find_plots;
-	_distance = DZE_PlotPole select 0;
+	_distance = _callBack select 0;
 };
 
 _IsNearPlot = _plotcheck select 1;

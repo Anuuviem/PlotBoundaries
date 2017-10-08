@@ -8,10 +8,12 @@ _IsNearPlot = 0;
 _nearestPole = "";
 _findNearestPole = [];
 
+_callBack = _player call FNC_plotBoundaries;
+
 if(_isPole) then {
-	_distance = DZE_PlotPole select 1;
+	_distance = _callBack select 1;
 }else{
-	_distance = DZE_PlotPole select 0;
+	_distance = _callBack select 0;
 };
 
 _pos = [vehicle _player] call FNC_getPos;

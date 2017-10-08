@@ -6,9 +6,11 @@ _density = 3; // density of markers per ring
 _model = "Sign_sphere100cm_EP1"; // marker model to use on rings
 // Possible ones to use ::	Sign_sphere10cm_EP1  Sign_sphere25cm_EP1  Sign_sphere100cm_EP1 
 
+_callBack = call FNC_plotBoundaries;
+
 _thePlot = (nearestObjects [player, ["Plastic_Pole_EP1_DZ"],15]) select 0;
 _center = getPosASL _thePlot;
-_radius = DZE_PlotPole select 0;
+_radius = _callBack select 0;
 _obj = false;
 _tmp = -1;
 
