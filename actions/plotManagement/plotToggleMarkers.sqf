@@ -10,7 +10,7 @@ _callBack = call FNC_plotBoundaries;
 
 _thePlot = (nearestObjects [player, ["Plastic_Pole_EP1_DZ"],15]) select 0;
 _center = getPosASL _thePlot;
-_radius = _callBack select 0;
+_radius = _callBack select 1;
 _obj = false;
 _tmp = -1;
 
